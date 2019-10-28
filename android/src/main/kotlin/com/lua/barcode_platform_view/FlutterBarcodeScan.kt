@@ -51,6 +51,13 @@ internal constructor(internal var context: Context, internal var registrar: Regi
         }
     }
 
+    private fun resumeCameraPreview() {
+        scannerView.setResultHandler(this);
+        if (!requestCameraAccessIfNecessary()) {
+            scannerView.resumeCameraPreview(this);
+        }
+    }
+
     private fun stopCamera() {
         scannerView.stopCamera()
     }
@@ -59,6 +66,10 @@ internal constructor(internal var context: Context, internal var registrar: Regi
         when (call.method) {
             "startCamera" -> {
                 startCamera()
+                result.success(null)
+            }
+            "resumeCameraPreview" -> {
+                resumeCameraPreview()
                 result.success(null)
             }
             "stopCamera" -> {

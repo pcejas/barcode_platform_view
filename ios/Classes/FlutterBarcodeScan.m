@@ -180,6 +180,8 @@
         printf("scanRect start animating\n");
         [_scanRect startAnimating];
      [self onStartCamera:call result:result];
+    }else if ([[call method] isEqualToString:@"resumeCameraPreview"]) {
+        // [self.scanner stopScanning];
     }else if ([[call method] isEqualToString:@"stopCamera"]) {
         [self.scanner stopScanning];
     }else if ([[call method] isEqualToString:@"setDimensions"]) {
@@ -201,7 +203,7 @@
              printf("Will scan!\n");
              [self.scanner startScanningWithResultBlock:^(NSArray<AVMetadataMachineReadableCodeObject *> *codes) {
                  printf("Found something\n");
-                 [self.scanner stopScanning];
+                 //[self.scanner stopScanning];
                  AVMetadataMachineReadableCodeObject *code = codes.firstObject;
                  if (code) {
                      NSLog(@"%@", code.stringValue);
