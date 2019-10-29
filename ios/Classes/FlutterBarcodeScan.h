@@ -11,18 +11,18 @@
 
 @interface FlutterBarcodeScanController : NSObject <FlutterPlatformView>
 
-- (instancetype)initWithWithFrame:(CGRect)frame
+- (instancetype _Nonnull )initWithWithFrame:(CGRect)frame
                    viewIdentifier:(int64_t)viewId
                         arguments:(id _Nullable)args
-                  binaryMessenger:(NSObject<FlutterBinaryMessenger>*)messenger;
+                  binaryMessenger:(NSObject<FlutterBinaryMessenger>*_Nonnull)messenger;
 
-- (UIView*)view;
+- (UIView*_Nonnull)view;
 //@property(nonatomic, retain) UIView *mainView;
-@property(nonatomic, retain) UIView *previewView;
-@property(nonatomic, retain) ScannerOverlay *scanRect;
-@property(nonatomic, retain) MTBBarcodeScanner *scanner;
+@property(nonatomic, retain) UIView * _Nonnull previewView;
+@property(nonatomic, retain) ScannerOverlay * _Nonnull scanRect;
+@property(nonatomic, retain) MTBBarcodeScanner * _Nonnull scanner;
 @end
 
 @interface FlutterBarcodeScanFactory : NSObject <FlutterPlatformViewFactory>
-- (instancetype)initWithMessenger:(NSObject<FlutterBinaryMessenger>*)messenger;
+- (instancetype _Nonnull )initWithMessenger:(NSObject<FlutterBinaryMessenger>*_Nonnull)messenger;
 @end
